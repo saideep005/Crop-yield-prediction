@@ -1,0 +1,62 @@
+body {
+    font-family: Arial;
+    background: url("images/farm.jpg") no-repeat center center/cover;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Glass effect container */
+.container {
+    width: 400px;
+    margin: 60px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    color: #2e7d32;
+}
+
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 95%;
+    padding: 12px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+.result-card {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.result-card h1 {
+    color: #1b5e20;
+}
+
+.details {
+    text-align: left;
+}
+
+canvas {
+    margin-top: 20px;
+}

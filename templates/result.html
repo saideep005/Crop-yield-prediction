@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🌾 Crop Yield Prediction</h2>
+
+    <!-- Result -->
+    <div class="result-card">
+        <p>Predicted Yield</p>
+        <h1>{{ prediction }} tons/hectare</h1>
+    </div>
+
+    <!-- Input Summary -->
+    <div class="details">
+        <h3>📋 Input Summary</h3>
+        <ul>
+            <li>Rainfall: {{ rainfall }}</li>
+            <li>Temperature: {{ temperature }}</li>
+            <li>Humidity: {{ humidity }}</li>
+            <li>Fertilizer: {{ fertilizer }}</li>
+            <li>Soil Type: {{ soil_type }}</li>
+        </ul>
+    </div>
+
+    <!-- GRAPH -->
+    <canvas id="myChart" style="margin-top:20px;"></canvas>
+
+    <!-- Back Button -->
+    <a href="/" style="text-decoration: none;">
+        <button style="
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background:#2e7d32;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;">
+            ← Back
+        </button>
+    </a>
+
+    <!-- Logout Button -->
+    <a href="/logout" style="text-decoration: none;">
+        <button style="
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            background:#2e7d32;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;">
+            Logout
+        </button>
+    </a>
+
+</div>
+
+<!-- GRAPH SCRIPT -->
+<script>
+window.onload = function() {
+
+    const predictionValue = parseFloat("{{ prediction }}");
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Yield'],
+            datasets: [{
+                label: 'Predicted Yield',
+                data: [predictionValue],
+                backgroundColor: '#2e7d32'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+}
+</script>
+
+</body>
+</html>

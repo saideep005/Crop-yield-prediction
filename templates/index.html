@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>🌾 Crop Yield Prediction</h2>
+
+        <form action="/predict" method="post">
+            <input type="number" name="rainfall" placeholder="Rainfall" required>
+            <input type="number" name="temperature" placeholder="Temperature" required>
+            <input type="number" name="humidity" placeholder="Humidity" required>
+            <input type="number" name="fertilizer" placeholder="Fertilizer" required>
+
+            <select name="soil_type">
+                <option value="0">Loamy</option>
+                <option value="1">Sandy</option>
+                <option value="2">Clay</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+    
+</a>
+</body>
+</html>
